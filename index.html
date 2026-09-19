@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#fff6fb" />
+  <title>다인이의 꿈 키우기</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <header class="hero">
+      <div>
+        <p class="eyebrow">우리 가족 미니 육성 게임</p>
+        <h1><span id="heroName">다인이</span>의 꿈 키우기 🌱</h1>
+        <p class="subtitle">24주 동안 공부하고, 놀고, 운동하고, 친구를 만나며 나만의 엔딩을 만들어 보세요.</p>
+      </div>
+      <button id="resetBtn" class="ghost-btn" type="button">처음부터</button>
+    </header>
+
+    <main class="layout">
+      <section class="panel profile-panel">
+        <div class="avatar-wrap" aria-hidden="true">
+          <div id="avatar" class="avatar">👧🏻</div>
+          <div class="sparkle sparkle-a">✦</div>
+          <div class="sparkle sparkle-b">✧</div>
+        </div>
+
+        <div class="profile-copy">
+          <label for="nameInput">주인공 이름</label>
+          <div class="name-row">
+            <input id="nameInput" maxlength="10" value="다인이" />
+            <button id="saveNameBtn" type="button">적용</button>
+          </div>
+
+          <div class="week-box">
+            <div>
+              <span class="mini-label">현재</span>
+              <strong><span id="weekText">1</span>주차 / 24주</strong>
+            </div>
+            <div class="progress-track" aria-label="게임 진행도">
+              <div id="progressBar" class="progress-bar"></div>
+            </div>
+          </div>
+
+          <div class="resource-row">
+            <div class="resource-card"><span>💰 용돈</span><strong id="moneyText">12,000원</strong></div>
+            <div class="resource-card"><span>😊 기분</span><strong id="moodText">70</strong></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel stats-panel">
+        <div class="section-title-row">
+          <div>
+            <p class="eyebrow">능력치</p>
+            <h2>이번엔 어떤 꿈에 가까워질까?</h2>
+          </div>
+          <span id="statusBadge" class="badge">좋은 출발!</span>
+        </div>
+
+        <div id="statsGrid" class="stats-grid"></div>
+      </section>
+
+      <section class="panel actions-panel">
+        <div class="section-title-row">
+          <div>
+            <p class="eyebrow">이번 주 선택</p>
+            <h2>한 가지 활동을 골라 주세요</h2>
+          </div>
+          <span class="hint">버튼을 누르면 1주가 지나가요.</span>
+        </div>
+        <div id="actionsGrid" class="actions-grid"></div>
+      </section>
+
+      <section class="panel story-panel">
+        <div class="section-title-row">
+          <div>
+            <p class="eyebrow">이번 주 이야기</p>
+            <h2>성장 일기</h2>
+          </div>
+          <button id="saveBtn" class="ghost-btn small" type="button">저장</button>
+        </div>
+        <div id="storyLog" class="story-log" aria-live="polite"></div>
+      </section>
+    </main>
+  </div>
+
+  <div id="modalBackdrop" class="modal-backdrop hidden" role="presentation">
+    <section class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <div id="modalEmoji" class="modal-emoji">✨</div>
+      <p class="eyebrow">특별 이벤트</p>
+      <h2 id="modalTitle">무슨 일이 생겼을까요?</h2>
+      <p id="modalText" class="modal-text"></p>
+      <div id="modalChoices" class="modal-choices"></div>
+    </section>
+  </div>
+
+  <template id="endingTemplate">
+    <div class="ending-card">
+      <div class="ending-emoji"></div>
+      <p class="eyebrow">24주 성장 완료</p>
+      <h2 class="ending-title"></h2>
+      <p class="ending-description"></p>
+      <div class="ending-summary"></div>
+      <button class="restart-primary" type="button">다시 키워보기</button>
+    </div>
+  </template>
+
+  <script src="game.js"></script>
+</body>
+</html>
